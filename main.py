@@ -27,6 +27,7 @@ def url_get():
             print '\033[1;31;40m'
             print 'Invalid opeartion!'
             print '\033[0m'
+            sys.exit(0)
 
 def spiderpage(_url):
    # kv={}
