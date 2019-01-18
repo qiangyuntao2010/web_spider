@@ -16,7 +16,7 @@ class linkqueue:
         return self.visited.append(url)
 
     def add_url_unvisited(self,url):
-        if url!="" and url not in self.visited and not in self.unvisited:
+        if url!="" and url not in self.visited and url not in self.unvisited:
             return self.unvisited.insert(0,url)
 
     def remove_url_visited(self,url):
