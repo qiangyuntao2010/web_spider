@@ -57,7 +57,7 @@ def url_filtrate(pagelinks):
 def write_file(list):
     x=1
     for url in list[1:]:
-        file=open('./urls.txt','a',encoding='utf8')
+        file=open('./urls.txt','a+',encoding='utf8')
         file.write(url+"\n")
         x+=1
    # file.close()

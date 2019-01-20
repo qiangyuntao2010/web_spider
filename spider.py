@@ -11,6 +11,7 @@ class spider:
         x=1
         while x<=urlcount:
             if x>=1:
+                print '\n'
                 print 'Process no.%d url,start!\n'%(x-1)
             visitedurl=self.linkqueue.pop_from_unvisited()
             if visitedurl is None or visitedurl=='':
