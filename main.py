@@ -6,19 +6,21 @@ import re
 from linkqueue import linkqueue
 from spider import spider
 import sys
+from os import system
 
 
 
 def url_get():
+    system("uname -a")
     _url=raw_input("Please input the url you want to process: ")
     try:
         requests.get(_url)
         return _url
     except:
         print '\033[5;31;40m'
-        print "ERROR:Can not connct the address!"
+        print "ERROR: Can not connct the address!"
         print '\033[0m'
-        a=int(raw_input("Next step number you need to select:([1]repeat input. [2]Exit!):"))
+        a=int(raw_input("Next step number you need to select:([1]repeat input. [2]Exit):"))
         if a==1:
             return url_get()
         if a==2:
@@ -58,13 +60,13 @@ def write_file(list):
         file=open('./urls.txt','a',encoding='utf8')
         file.write(url+"\n")
         x+=1
-    file.close()
+   # file.close()
     print 'Write finished, total number of url is %d\n'%(x-1)
 
 if __name__=='__main__':
     url=url_get()
     _spider=spider(url)
-    urllist=spider.crawler(100)
+    urllist=_spider.crawler(100)
     write_file(urllist)
 
 

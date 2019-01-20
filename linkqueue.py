@@ -2,7 +2,7 @@
 # coding=utf-8
 
 class linkqueue:
-    def _init_(self):
+    def __init__(self):
         self.visited=[]
         self.unvisited=[]
 
@@ -20,9 +20,11 @@ class linkqueue:
             return self.unvisited.insert(0,url)
 
     def remove_url_visited(self,url):
+        a=self.visited.remove(url)
+        print 'a=%d\n'%(a)
         return self.visited.remove(url)
 
-    def pop_from_unvisitd(self):
+    def pop_from_unvisited(self):
         try:
             return self.visited.pop()
         except:

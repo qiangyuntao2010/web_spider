@@ -2,19 +2,19 @@
 # coding=utf-8
 from linkqueue import linkqueue
 
-class spider():
-    def _init_(self,url):
+class spider:
+    def __init__(self,url):
         self.linkqueue=linkqueue()
         self.linkqueue.add_url_unvisited(url)
 
     def crawler(self,urlcount):
         x=1
         while x<=urlcount:
-            if x>1:
+            if x>=1:
                 print 'Process no.%d url,start!\n'%(x-1)
             visitedurl=self.linkqueue.pop_from_unvisited()
             if visitedurl is None or visitedurl=='':
-                continue
+                break
             initial_links=spiderpage(visitedurl)
             right_links=url_filtrate(initial_links)
             self.linkqueue.add_url_visited(visitedurl)
